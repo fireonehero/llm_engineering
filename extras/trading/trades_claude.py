@@ -6,16 +6,15 @@ import prices
 
 # Trade represents a decision to buy or sell a quantity of a ticker
 import Trade
-
-import random
 import numpy as np
+import secrets
 
 def trade2():
     # Buy if the current price is lower than the average of the last 5 days
     trades = []
     for ticker in tickers:
         if prices[ticker][0] < np.mean(prices[ticker][1:6]):
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -24,7 +23,7 @@ def trade3():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] > np.mean(prices[ticker][1:11]):
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -33,7 +32,7 @@ def trade4():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] == min(prices[ticker][:3]):
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -42,7 +41,7 @@ def trade5():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] == max(prices[ticker][:3]):
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -51,7 +50,7 @@ def trade6():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] > prices[ticker][1]:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -60,7 +59,7 @@ def trade7():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] < prices[ticker][1]:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -69,7 +68,7 @@ def trade8():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] > np.mean(prices[ticker][1:21]):
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -78,7 +77,7 @@ def trade9():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] < np.mean(prices[ticker][1:21]):
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -87,7 +86,7 @@ def trade10():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] > max(prices[ticker][1:6]):
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -96,7 +95,7 @@ def trade11():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] < min(prices[ticker][1:6]):
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -111,7 +110,7 @@ def trade13():
     trades = []
     for ticker in tickers:
         if np.mean(prices[ticker][:5]) > np.mean(prices[ticker][:20]) and np.mean(prices[ticker][1:6]) <= np.mean(prices[ticker][1:21]):
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -120,7 +119,7 @@ def trade14():
     trades = []
     for ticker in tickers:
         if np.mean(prices[ticker][:5]) < np.mean(prices[ticker][:20]) and np.mean(prices[ticker][1:6]) >= np.mean(prices[ticker][1:21]):
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -129,7 +128,7 @@ def trade15():
     trades = []
     for ticker in tickers:
         if volumes[ticker][0] > np.mean(volumes[ticker][1:11]):
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -138,7 +137,7 @@ def trade16():
     trades = []
     for ticker in tickers:
         if volumes[ticker][0] < np.mean(volumes[ticker][1:11]):
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -161,7 +160,7 @@ def trade18():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] > np.mean(prices[ticker][:50]) > np.mean(prices[ticker][:200]):
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -170,7 +169,7 @@ def trade19():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] < np.mean(prices[ticker][:50]) < np.mean(prices[ticker][:200]):
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -191,7 +190,7 @@ def trade21():
         std = np.std(prices[ticker][:20])
         upper_band = sma + 2 * std
         if prices[ticker][0] > upper_band:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -203,7 +202,7 @@ def trade22():
         std = np.std(prices[ticker][:20])
         lower_band = sma - 2 * std
         if prices[ticker][0] < lower_band:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -214,7 +213,7 @@ def trade23():
         volatility = np.std(prices[ticker][:10])
         avg_volatility = np.mean([np.std(prices[ticker][i:i+10]) for i in range(10)])
         if volatility > avg_volatility:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -225,7 +224,7 @@ def trade24():
         volatility = np.std(prices[ticker][:10])
         avg_volatility = np.mean([np.std(prices[ticker][i:i+10]) for i in range(10)])
         if volatility < avg_volatility:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -247,7 +246,7 @@ def trade26():
         for i in range(1, 20):
             ema = (prices[ticker][i] - ema) * multiplier + ema
         if prices[ticker][0] > ema:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -260,7 +259,7 @@ def trade27():
         for i in range(1, 20):
             ema = (prices[ticker][i] - ema) * multiplier + ema
         if prices[ticker][0] < ema:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -275,7 +274,7 @@ def trade28():
         atr = np.mean([np.max(prices[ticker][i:i+10]) - np.min(prices[ticker][i:i+10]) for i in range(10)])
         upper_channel = ema + 2 * atr
         if prices[ticker][0] > upper_channel:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -290,7 +289,7 @@ def trade29():
         atr = np.mean([np.max(prices[ticker][i:i+10]) - np.min(prices[ticker][i:i+10]) for i in range(10)])
         lower_channel = ema - 2 * atr
         if prices[ticker][0] < lower_channel:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -310,7 +309,7 @@ def trade31():
     for ticker in tickers:
         conversion_line = (np.max(prices[ticker][:9]) + np.min(prices[ticker][:9])) / 2
         if prices[ticker][0] > conversion_line:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -319,7 +318,7 @@ def trade32():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] > prices[ticker][4]:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -328,7 +327,7 @@ def trade33():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] < prices[ticker][4]:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -337,7 +336,7 @@ def trade34():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] == max(prices[ticker][:15]):
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -346,7 +345,7 @@ def trade35():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] == min(prices[ticker][:15]):
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -356,7 +355,7 @@ def trade36():
     for ticker in tickers:
         sma = np.mean(prices[ticker][:10])
         if prices[ticker][0] > sma:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -366,7 +365,7 @@ def trade37():
     for ticker in tickers:
         sma = np.mean(prices[ticker][:10])
         if prices[ticker][0] < sma:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -375,7 +374,7 @@ def trade38():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] > max(prices[ticker][:20]):
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -384,7 +383,7 @@ def trade39():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] < min(prices[ticker][:20]):
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -394,7 +393,7 @@ def trade40():
     for ticker in tickers:
         sma = np.mean(prices[ticker][:50])
         if prices[ticker][0] > sma:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -404,7 +403,7 @@ def trade41():
     for ticker in tickers:
         sma = np.mean(prices[ticker][:50])
         if prices[ticker][0] < sma:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -413,7 +412,7 @@ def trade42():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] > prices[ticker][1] > prices[ticker][2]:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -422,7 +421,7 @@ def trade43():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] < prices[ticker][1] < prices[ticker][2]:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -431,7 +430,7 @@ def trade44():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] > max(prices[ticker][1:2]):
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -440,7 +439,7 @@ def trade45():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] < min(prices[ticker][1:2]):
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -449,7 +448,7 @@ def trade46():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] > max(prices[ticker][1:2]) and prices[ticker][1] < prices[ticker][2]:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -458,7 +457,7 @@ def trade47():
     trades = []
     for ticker in tickers:
         if prices[ticker][0] < min(prices[ticker][1:2]) and prices[ticker][1] > prices[ticker][2]:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -469,7 +468,7 @@ def trade48():
         sma5 = np.mean(prices[ticker][:5])
         sma10 = np.mean(prices[ticker][:10])
         if prices[ticker][0] > sma5 > sma10:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -480,7 +479,7 @@ def trade49():
         sma5 = np.mean(prices[ticker][:5])
         sma10 = np.mean(prices[ticker][:10])
         if prices[ticker][0] < sma5 < sma10:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -490,7 +489,7 @@ def trade50():
     for ticker in tickers:
         sma50 = np.mean(prices[ticker][:50])
         if prices[ticker][0] > sma50 and prices[ticker][1] < sma50:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -500,7 +499,7 @@ def trade51():
     for ticker in tickers:
         sma50 = np.mean(prices[ticker][:50])
         if prices[ticker][0] < sma50 and prices[ticker][1] > sma50:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -511,7 +510,7 @@ def trade52():
         mean20 = np.mean(prices[ticker][:20])
         std20 = np.std(prices[ticker][:20])
         if prices[ticker][0] < mean20 - 2 * std20:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -522,7 +521,7 @@ def trade53():
         mean20 = np.mean(prices[ticker][:20])
         std20 = np.std(prices[ticker][:20])
         if prices[ticker][0] > mean20 + 2 * std20:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -533,7 +532,7 @@ def trade54():
         mean50 = np.mean(prices[ticker][:50])
         prev_mean50 = np.mean(prices[ticker][1:51])
         if prices[ticker][0] < mean50 and mean50 > prev_mean50:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -544,7 +543,7 @@ def trade55():
         mean50 = np.mean(prices[ticker][:50])
         prev_mean50 = np.mean(prices[ticker][1:51])
         if prices[ticker][0] > mean50 and mean50 < prev_mean50:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -556,7 +555,7 @@ def trade56():
         mean50 = np.mean(prices[ticker][:50])
         prev_mean5 = np.mean(prices[ticker][1:6])
         if mean5 > mean50 and prev_mean5 < mean50:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -568,7 +567,7 @@ def trade57():
         mean50 = np.mean(prices[ticker][:50])
         prev_mean5 = np.mean(prices[ticker][1:6])
         if mean5 < mean50 and prev_mean5 > mean50:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -595,7 +594,7 @@ def trade60():
         mean200 = np.mean(prices[ticker][:200])
         prev_mean200 = np.mean(prices[ticker][1:201])
         if prices[ticker][0] > mean200 and mean200 > prev_mean200:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -606,7 +605,7 @@ def trade61():
         mean200 = np.mean(prices[ticker][:200])
         prev_mean200 = np.mean(prices[ticker][1:201])
         if prices[ticker][0] < mean200 and mean200 < prev_mean200:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -617,7 +616,7 @@ def trade62():
         stock_return = (prices[ticker][0] - prices[ticker][4]) / prices[ticker][4]
         market_return = (sum(prices[t][0] for t in tickers) - sum(prices[t][4] for t in tickers)) / sum(prices[t][4] for t in tickers)
         if stock_return > market_return:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -628,7 +627,7 @@ def trade63():
         stock_return = (prices[ticker][0] - prices[ticker][4]) / prices[ticker][4]
         market_return = (sum(prices[t][0] for t in tickers) - sum(prices[t][4] for t in tickers)) / sum(prices[t][4] for t in tickers)
         if stock_return < market_return:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -661,7 +660,7 @@ def trade66():
         stock_returns = [(prices[ticker][i] / prices[ticker][i+1]) - 1 for i in range(19)]
         stock_sharpe = np.mean(stock_returns) / np.std(stock_returns)
         if stock_sharpe > market_sharpe:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -674,7 +673,7 @@ def trade67():
         stock_returns = [(prices[ticker][i] / prices[ticker][i+1]) - 1 for i in range(19)]
         stock_sharpe = np.mean(stock_returns) / np.std(stock_returns)
         if stock_sharpe < market_sharpe:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -686,7 +685,7 @@ def trade68():
         stock_returns = [(prices[ticker][i] / prices[ticker][i+1]) - 1 for i in range(49)]
         beta = np.cov(stock_returns, market_returns)[0, 1] / np.var(market_returns)
         if beta > 1:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -698,7 +697,7 @@ def trade69():
         stock_returns = [(prices[ticker][i] / prices[ticker][i+1]) - 1 for i in range(49)]
         beta = np.cov(stock_returns, market_returns)[0, 1] / np.var(market_returns)
         if beta < 1:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -709,7 +708,7 @@ def trade70():
     for ticker in tickers:
         stock_up_days = sum(prices[ticker][i] > prices[ticker][i+1] for i in range(49))
         if stock_up_days > market_up_days:
-            quantity = random.randrange(1, 100)
+            quantity = secrets.SystemRandom().randrange(1, 100)
             trades.append(Trade(ticker, quantity))
     return trades
 
@@ -720,6 +719,6 @@ def trade71():
     for ticker in tickers:
         stock_up_days = sum(prices[ticker][i] > prices[ticker][i+1] for i in range(49))
         if stock_up_days < market_up_days:
-            quantity = random.randrange(-100, -1)
+            quantity = secrets.SystemRandom().randrange(-100, -1)
             trades.append(Trade(ticker, quantity))
     return trades
